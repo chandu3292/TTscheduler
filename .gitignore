@@ -1,0 +1,33 @@
+# Ignore Python cache and environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+.venv/
+venv/
+ENV/
+
+# Ignore editor settings
+.vscode/
+
+# Ignore database and backup files
+db.sqlite3
+backups/
+
+# Ignore secret files
+secret_key.txt
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore archive files
+*.zip
+*.tar.gz
+
+# Ignore static build artifacts
+staticfiles/
+
+# Add more patterns as needed

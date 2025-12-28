@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+  <h2>Wipe Scheduler Data</h2>
+  <p>This action will permanently delete all data for Sections, Departments, Courses, Meeting Times, Instructors and Rooms in the SchedulerApp.</p>
+  <p><strong>Backup your database first.</strong></p>
+
+  {% if result %}
+  <div class="alert alert-info">{{ result }}</div>
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="confirm">Type <code>DELETE</code> to confirm:</label>
+      <input id="confirm" name="confirm" class="form-control" placeholder="Type DELETE to confirm" />
+    </div>
+    <button type="submit" class="btn btn-danger">Confirm and delete</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+
+{% endblock %}
