@@ -18,6 +18,9 @@ backups/
 
 # Ignore secret files
 secret_key.txt
+.env
+*.env
+!.env.example
 
 # Ignore OS files
 .DS_Store
