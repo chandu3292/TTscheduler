@@ -2,9 +2,13 @@ import os
 import django
 import secrets
 import string
+import sys
+
+# Add project root to sys.path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/..')
 
 # Use the project's settings
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Scheduler.Scheduler.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Scheduler.settings')
 django.setup()
 
 from django.contrib.auth import get_user_model
@@ -19,6 +23,9 @@ super_username = 'admin'
 super_email = 'admin@example.com'
 regular_username = 'testuser'
 regular_email = 'testuser@example.com'
+permanent_username = 'chandu'
+permanent_email = 'chandu@example.com'
+permanent_password = 'chandu'
 
 created = []
 
@@ -39,6 +46,14 @@ if not User.objects.filter(username=regular_username).exists():
     created.append(('user', regular_username, regular_email, regular_password))
 else:
     print(f"USER_EXISTS {regular_username}")
+
+# Permanent user: chandu / chandu
+if not User.objects.filter(username=permanent_username).exists():
+    User.objects.create_user(username=permanent_username, email=permanent_email, password=permanent_password)
+    print(f"USER_CREATED {permanent_username} {permanent_email} {permanent_password}")
+    created.append(('user', permanent_username, permanent_email, permanent_password))
+else:
+    print(f"USER_EXISTS {permanent_username}")
 
 if not created:
     print('NO_CHANGES')

@@ -396,6 +396,8 @@ a:focus {
 .logoLogin {
   margin-top: 15px;
   margin-bottom: 15px;
+  max-width: 200px;
+  height: auto;
 }
 
 @media only screen and (max-width:990px) {
